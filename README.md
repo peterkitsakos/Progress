@@ -1,7 +1,10 @@
 # Progress
 
-# Peter Kitsakos
-# Progress Hobby Tracker
-# Instagram: @peterkitsakos
-# Twitter: @peterkitsakos
-# Inquiries handled at peter.kitsakos@gmail.com
+##Author
+Peter Kitsakos
+##Official Project Title
+Progress Hobby Tracker
+##Developer Social Media
+* Instagram: @peterkitsakos
+* Twitter: @peterkitsakos
+* Inquiries handled at peter.kitsakos@gmail.com
