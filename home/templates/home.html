@@ -1,0 +1,32 @@
+{% extends "baseNav.html" %}
+
+{% block css %}
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/home.css') }}">
+{% endblock %}
+
+{% block content %}
+  <div id='hobbyTitle'>
+      <p>{{ current_user.username }}</p>
+      <span id="titleControls">
+        <a href="#">Help</a>
+        <a href="{{ url_for('logout') }}">Logout</a>
+      </span>
+  </div>
+
+  <div id='calendar'>
+    <div id='calendarControls'>
+    	<button class='calCtrlButton'>Month</button>
+    	<button class='calCtrlButton'>Year</button>
+    </div>
+
+    <div id="calendarDays">
+      {% for day in calendarDays %}
+        {% if day.past %}
+      	<p class='pastDay'>{{ day.date }}</p>
+        {% else %}
+        <p class='futureDay'>{{ day.date }}</p>
+        {% endif %}
+      {% endfor %}
+    </div>
+  </div>
+{% endblock %}

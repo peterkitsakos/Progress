@@ -1,0 +1,84 @@
+p{
+	display: block;
+	color: white;
+	font-family: 'Roboto', sans-serif;
+	margin-bottom: 10px;
+}
+
+form{
+	display: flex;
+	height: 100%;
+	width: 100%;
+}
+
+#form{
+	display: flex;
+	flex-direction: column;
+	height: 100%;
+	width: 100%;
+}
+
+#durFreq{
+	padding: 10px 0px 0px 10px;
+	width: 100%;
+}
+
+#notesCluster, #goalsCluster{
+	display: block;
+	padding-left: 10px;
+	height: 100%;
+}
+
+#notesCluster p, #goalsCluster p{
+	height: calc(100% - 20px);
+}
+
+.textArea{
+	resize: none;
+	display: block;
+	width: calc(100% - 10px);
+	height: 100%;
+
+	font-family: 'Roboto', sans-serif;
+	font-size: 16pt;
+	color: white;
+
+	background-color: #515151;
+	border: 1px solid #2e2e30;
+}
+
+.wtfString{
+	display: block;
+	width: 100%;
+	color: white;
+	box-shadow: inset 4px 0px white;
+	border: 0px;
+	padding: 10px 0px 10px 10px;
+	background-color: #515151;
+	font-size: 15pt;
+}
+
+#submitContainer{
+	padding: 10px 0px 0px 10px;
+}
+
+.submit{
+	border: none;
+	text-decoration: none;
+	color: white;
+	font-family: 'Montserrat', sans-serif;
+	font-size: 12pt;
+	margin-right: 20px;
+	background-color: #FF5A5A;
+	padding: 2px;
+}
+
+.submit:hover{
+	background-color: #af3d3d;
+	cursor: pointer;
+}
+
+::placeholder{
+	color: #c1c1c1;
+	opacity: 1;
+}

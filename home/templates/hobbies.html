@@ -1,0 +1,20 @@
+{% extends "baseNav.html" %}
+
+{% block css %}
+<link rel="stylesheet" href="{{ url_for('static',filename='css/hobbyView.css') }}">
+{% endblock %}
+
+{% block content %}
+<div id='hobbiesList'>
+	<ul>
+		{% for hobby in hobbies %}
+			<li><a href="{{ url_for('hobbyView', username=current_user.username, hobbyName=hobby.name) }}"><p>{{ hobby.name }}</p></a></li>
+		{% endfor %}
+			<li><a href="{{ url_for('newHobby') }}"><p>+ New Hobby</p></a></li>
+	</ul>
+</div>
+
+<div id='hobbiesContent'>
+	
+</div>
+{% endblock %}

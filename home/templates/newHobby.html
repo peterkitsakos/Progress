@@ -1,0 +1,58 @@
+{% extends "baseNav.html" %}
+
+{% block css %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/newHobby.css') }}">
+{% endblock %}
+
+{% block content %}
+<form action="" method="POST">
+	{{ form.hidden_tag() }}
+	<div id="form">	
+		<p>
+			{{ form.name(placeholder="Hobby Name...", class="wtfString") }}
+		</p>
+		{% for error in form.name.errors %}
+           		<span style="color: red; font-family: 'Roboto', sans-serif;">{{ error }}</span>
+		{% endfor %}
+		<div id="durFreq">
+			<p>
+				{{ form.frequency }}
+				{{ form.frequency.label }}
+			</p>
+			{% for error in form.frequency.errors %}
+           		<span style="color: red; font-family: 'Roboto', sans-serif;">{{ error }}</span>
+           	{% endfor %}
+			<p>
+				{{ form.duration }}
+				{{ form.duration.label }}
+			</p>
+			{% for error in form.duration.errors %}
+           		<span style="color: red; font-family: 'Roboto', sans-serif;">{{ error }}</span>
+            {% endfor %}
+		</div>
+		<div id="notesCluster">
+			<p>
+				{{ form.notes.label }}
+				{{ form.notes(class='textArea', placeholder='Notes...') }}
+			</p>
+			{% for error in form.notes.errors %}
+           		<span style="color: red; font-family: 'Roboto', sans-serif;">{{ error }}</span>
+            {% endfor %}
+		</div>
+		<div id="goalsCluster">
+			<p>
+				{{ form.goals.label }}
+				{{ form.goals(class='textArea', placeholder='(Optional)...') }}
+			</p>
+		</div>
+		{% for error in form.goals.errors %}
+           		<span style="color: red; font-family: 'Roboto', sans-serif;">{{ error }}</span>
+        {% endfor %}
+		<div id="submitContainer">
+			<p>
+				{{ form.submit(class="submit") }}
+			</p>
+		</div>
+	<div id="form">
+</form>
+{% endblock %}
