@@ -1,0 +1,68 @@
+p{
+	display: block;
+	font-family: 'Roboto', sans-serif;
+	color: white;
+}
+
+#alignCenter p{
+	text-align: center;
+}
+
+h1{
+	font-family: 'Montserrat', sans-serif;
+	font-size: 72pt;
+	text-align: center;
+	color: white;
+}
+
+a{
+	color: white;
+}
+
+ul{
+	list-style-type: none;
+}
+
+#centeredElements{
+	display: block;
+}
+
+#centeredLeft{
+	display: inline-block;
+	width: 40%;
+}
+
+#centeredLeft li{
+	text-align: right;
+}
+
+#centeredRight{
+	display: inline-block;
+	width: 40%;
+}
+#centeredRight li{
+	display: block;
+}
+
+
+/*SignIn*/
+.signIn{
+	border: none;
+	text-decoration: none;
+	color: white;
+	font-family: 'Montserrat', sans-serif;
+	font-size: 12pt;
+	margin-right: 20px;
+	background-color: #FF5A5A;
+}
+
+.signIn:hover{
+	background-color: #af3d3d;
+	cursor: pointer;
+}
+
+#form{
+	position: absolute;
+	left: 33%;
+	top: 12%;
+}

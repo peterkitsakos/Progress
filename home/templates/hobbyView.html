@@ -1,0 +1,71 @@
+{% extends "baseNav.html" %}
+
+{% block css %}
+<link rel="stylesheet" href="{{ url_for('static',filename='css/hobbyView.css') }}">
+{% endblock %}
+
+{% block content %}
+<div id='hobbyContainer'>
+	<div id='hobbiesList'>
+		<ul>
+			{% for hobby in hobbies %}
+				<li><a href="{{ url_for('hobbyView', username=current_user.username, hobbyName=hobby.name) }}"><p>{{ hobby.name }}</p></a></li>
+			{% endfor %}
+				<li><a href="{{ url_for('newHobby') }}"><p>+ New Hobby</p></a></li>
+		</ul>
+	</div>
+
+	<div id='hobbiesContent'>
+		<form action="" method="POST">
+			{{ form.hidden_tag() }}
+			<p>
+				{{ form.name(placeholder="Hobby Name...", class="wtfString") }}
+			</p>
+			{% for error in form.name.errors %}
+	           		<span style="color: red; font-family: 'Roboto', sans-serif;">{{ error }}</span>
+			{% endfor %}
+			<div id="durFreq">
+				<p>
+					{{ form.frequency }}
+					{{ form.frequency.label }}
+				</p>
+				{% for error in form.frequency.errors %}
+	           		<span style="color: red; font-family: 'Roboto', sans-serif;">{{ error }}</span>
+	           	{% endfor %}
+				<p>
+					{{ form.duration }}
+					{{ form.duration.label }}
+				</p>
+				{% for error in form.duration.errors %}
+	           		<span style="color: red; font-family: 'Roboto', sans-serif;">{{ error }}</span>
+	            {% endfor %}
+			</div>
+			<div id="notesCluster">
+				<p>
+					{{ form.notes.label }}
+					{{ form.notes(class='textArea') }}
+				</p>
+				{% for error in form.notes.errors %}
+	           		<span style="color: red; font-family: 'Roboto', sans-serif;">{{ error }}</span>
+	            {% endfor %}
+			</div>
+			<div id="goalsCluster">
+				<p>
+					{{ form.goals.label }}
+				</p>
+				<p>
+					{{ form.goals(class='textArea') }}
+				</p>
+			</div>
+			{% for error in form.goals.errors %}
+	           		<span style="color: red; font-family: 'Roboto', sans-serif;">{{ error }}</span>
+	        {% endfor %}
+			<div id="submitContainer">
+				<p>
+					{{ form.submit(class="submit") }}
+				</p>
+			</div>
+		</form>
+	</div>
+</div>
+{% endblock %}
