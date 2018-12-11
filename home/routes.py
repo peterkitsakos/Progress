@@ -104,6 +104,15 @@ def hobbyView(username, hobbyName):
 	hobby = Hobby.query.filter_by(name=hobbyName).first_or_404()
 	hobbies = Hobby.query.filter_by(user=current_user.username).all()
 	form = HobbyForm(obj=hobby)
+
+	if form.validate_on_submit():
+		hobby.name = form.name.data
+		hobby.notes = form.notes.data
+		hobby.frequency = form.frequency.data
+		hobby.duration = form.duration.data
+		hobby.goals = form.goals.data
+		db.session.commit()
+		print("Updated Entry")
 	return render_template('hobbyView.html', hobbies=hobbies, hobby=hobby, form=form)
 
 
