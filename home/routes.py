@@ -20,12 +20,24 @@ def index():
 	hobbies = ["Photography","Programming"]
 
 	calendarDays = []
-	for days in range(monthrange(date.today().year,date.today().month)[1]):
+	month = monthrange(date.today().year,date.today().month)
+	dayOfWeek = month[0] + 1
+	if(dayOfWeek == 7):
+		dayOfWeek = 0
+
+	last_week = month[1] % 7
+	last_day = ((month[0] + last_week) % 7) + 1
+
+	for blanks in range(dayOfWeek):
+		calendarDays.append(Day(0,False,"",True))
+	for days in range(month[1]):
 		if(days < date.today().day):
 			day = Day(days + 1, False, "", True)
 		else:
 			day = Day(days + 1, False, "", False)
 		calendarDays.append(day)
+	for blanks in range(last_day, 7):
+		calendarDays.append(Day(0,False,"",False))
 
 	return render_template('home.html', hobbies=hobbies, calendarDays=calendarDays)
 

@@ -45,7 +45,7 @@
 #calendarControls{
 	display: flex;
 	flex-direction: row;
-	margin: 10px 0px 10px 10px;
+	margin: 10px 0px 0px 10px;
 }
 
 #calendarControls button{ 
@@ -79,9 +79,9 @@
 	background-color: grey;
 
 	display: flex;
-	width: 13%;
-	padding-bottom: 8%;
-	margin: 0px 10px 10px 0px;
+	width: 13.5%;
+	padding-bottom: 6.2%;
+	margin: 10px 10px 0px 0px;
 
 	border: white 1px;
 	border-radius: 2px;
@@ -95,9 +95,9 @@
 	background-color: white;
 
 	display: flex;
-	width: 13%;
-	padding-bottom: 8%;
-	margin: 0px 10px 10px 0px;
+	width: 13.5%;
+	padding-bottom: 6.2%;
+	margin: 10px 10px 0px 0px;
 
 	border: white 1px;
 	border-radius: 2px;
