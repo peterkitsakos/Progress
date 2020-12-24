@@ -4,4 +4,3 @@ Progress Hobby Tracker
 Peter Kitsakos
 ## Developer Social Media
 * Instagram: @peterkitsakos
-* Twitter: @peterkitsakos
