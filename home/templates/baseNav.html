@@ -5,7 +5,7 @@
 		<a {% if request.path == '/index' or request.path == '/' %} class='active' {% endif %} href="{{ url_for('index') }}"><img src="{{ url_for('static', filename='images/calendar.svg') }}" width="35px" height="35px"></a>
 		<!-- if the current url contains the string 'hobb' set class of nav element to active -->
 		<a {% if 'hobb' in request.path %} class='active' {% endif %} href="{{ url_for('hobbies', username=current_user.username) }}"><img src="{{ url_for('static', filename='images/list.svg') }}" width="35px" height="35px"></a>
-		<a href=""><img src="{{ url_for('static', filename='images/award.svg') }}" width="35px" height="35px"></a>
+		<a {% if 'achievement' in request.path %} class='active' {% endif %} href="{{ url_for('achievements', username=current_user.username) }}"><img src="{{ url_for('static', filename='images/award.svg') }}" width="35px" height="35px"></a>
   		<a href=""><img src="{{ url_for('static', filename='images/sliders.svg') }}" width="35px" height="35px"></a>
 	</div>
 {% endblock %}

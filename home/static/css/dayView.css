@@ -1,0 +1,111 @@
+.dayView{
+	display: flex;
+	flex-direction: column;
+
+	margin: 1%;
+	width: 100%;
+	height: 100%;
+	background-color: #39383B;
+
+	flex-basis: 33%;
+	border-radius: 3px;
+}
+
+.blankDate{
+	padding: 5px;
+	margin-bottom: 5px;
+	border-radius: 3px;
+	background-color: #515151;
+	user-select: none;
+}
+
+.blankDate h1{
+	color: #515151;
+}
+
+.blankHobbies{
+	display: flex;
+	align-items: center;
+	padding: 10px;
+	border-radius: 3px;
+	flex-grow: 1;
+	background-color: #515151;
+}
+
+.blankHobbies a{
+	text-decoration: none;
+	font-family: 'Roboto', sans-serif;
+	font-size: 36pt;
+	color: white;
+	padding: 5px;
+	background-color: red;
+	border-radius: 50px;
+}
+
+.blankHobbies a:hover{
+	background-color: grey;
+}
+
+.hobbyWithEllipsis{
+ 	display: flex;
+ 	flex-direction: row;
+
+	font-family: 'Roboto', sans-serif;
+	font-size: 20pt;
+
+	margin: 10px;
+	padding: 5px;
+
+	background-color: #d9d9d9;
+
+	border-radius: 5px;
+}
+
+.hobbyWithEllipsis .leftFill{
+	flex-grow: 1;
+}
+
+.hobbyWithEllipsis a{
+	color: black;
+	text-decoration: none;
+}
+
+#left{
+	justify-content: flex-start;
+}
+
+#right{
+	justify-content: flex-end;
+}
+
+#focusDay{
+	flex-basis: 66%;
+}
+
+#slider{
+	margin: 5% 0px;
+	width: 100%;
+	height: 100%;
+	display: flex;
+	flex-direction: row;
+}
+
+#date{
+	padding: 5px;
+	margin-bottom: 5px;
+	background-color: #E6E6E6;
+	border-radius: 3px;
+}
+
+#hobbyContent{
+	background-color: #E6E6E6;
+	border-radius: 3px;
+	flex-grow: 1;
+}
+
+
+h1{
+	font-family: 'Roboto', sans-serif;
+	color: black;
+	text-align: center;
+}

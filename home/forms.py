@@ -1,5 +1,5 @@
 from flask_wtf import FlaskForm
-from wtforms import StringField, PasswordField, BooleanField, SubmitField, SelectField, IntegerField, TextAreaField
+from wtforms import StringField, PasswordField, BooleanField, SubmitField, SelectField, IntegerField, TextAreaField, RadioField
 from wtforms.validators import DataRequired, ValidationError, Email, EqualTo
 from wtforms.widgets import TextArea
 from home.models import User
@@ -36,8 +36,21 @@ class HobbyForm(FlaskForm):
 			hours.append((j,str(j)))
 
 		name = StringField('Hobby Name', validators=[DataRequired()])
-		frequency = SelectField('Frequency (Days per week)', choices=days, validators=[DataRequired()], coerce=int)
-		duration = SelectField('Duration (Hours per day)', choices=hours, validators=[DataRequired()], coerce=int)
+		frequencySun = BooleanField()
+		frequencyMon = BooleanField()
+		frequencyTue = BooleanField()
+		frequencyWed = BooleanField()
+		frequencyThu = BooleanField()
+		frequencyFri = BooleanField()
+		frequencySat = BooleanField()
+		duration = IntegerField('Duration (Hours per day)', validators=[DataRequired()])
+		color = RadioField('Label Color', choices=[('Red',''),('Ora',''),('Yel',''),('Gre',''),('Blu',''),('Pur','')])
 		notes = TextAreaField('Notes')
 		goals = TextAreaField('Goals')
 		submit = SubmitField('Add Hobby')
+		save = SubmitField('Save Changes')
+		delete = SubmitField('Delete')
+
+class DevBlogForm(FlaskForm):
+		title = StringField('Post Title', validators=[DataRequired()])
+		content = TextAreaField('Post Content', validators=[DataRequired()])

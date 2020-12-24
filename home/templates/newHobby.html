@@ -16,20 +16,60 @@
 		{% endfor %}
 		<div id="durFreq">
 			<p>
-				{{ form.frequency }}
-				{{ form.frequency.label }}
+				Frequency (Days per week)
 			</p>
-			{% for error in form.frequency.errors %}
-           		<span style="color: red; font-family: 'Roboto', sans-serif;">{{ error }}</span>
-           	{% endfor %}
+
+			<!-- Day of Week choice buttons -->
+				<div id="freqChoices">
+					<label class="container">
+						{{ form.frequencySun() }}
+						<span class="checkmark">S</span>
+					</label>
+
+					<label class="container">
+						{{ form.frequencyMon() }}
+						<span class="checkmark">M</span>
+					</label>
+
+					<label class="container">
+						{{ form.frequencyTue() }}
+						<span class="checkmark">T</span>
+					</label>
+
+					<label class="container">
+						{{ form.frequencyWed() }}
+						<span class="checkmark">W</span>
+					</label>
+
+					<label class="container">
+						{{ form.frequencyThu() }}
+						<span class="checkmark">T</span>
+					</label>
+
+					<label class="container">
+						{{ form.frequencyFri() }}
+						<span class="checkmark">F</span>
+					</label>
+
+					<label class="container">
+						{{ form.frequencySat() }}
+						<span class="checkmark">S</span>
+					</label>
+				</div>
+
+			<!-- Duration selection and error handling -->
+			<p>
+				{{ form.duration.label }}
+			</p>
 			<p>
 				{{ form.duration }}
-				{{ form.duration.label }}
 			</p>
 			{% for error in form.duration.errors %}
            		<span style="color: red; font-family: 'Roboto', sans-serif;">{{ error }}</span>
             {% endfor %}
 		</div>
+
+		<!-- Cluster of notes text box and label -->
 		<div id="notesCluster">
 			<p>
 				{{ form.notes.label }}
@@ -39,6 +79,8 @@
            		<span style="color: red; font-family: 'Roboto', sans-serif;">{{ error }}</span>
             {% endfor %}
 		</div>
+
+		<!-- Cluster of goals text box and label -->
 		<div id="goalsCluster">
 			<p>
 				{{ form.goals.label }}
@@ -48,9 +90,12 @@
 		{% for error in form.goals.errors %}
            		<span style="color: red; font-family: 'Roboto', sans-serif;">{{ error }}</span>
         {% endfor %}
-		<div id="submitContainer">
+		<div id="submitCancelContainer">
 			<p>
 				{{ form.submit(class="submit") }}
+			</p>
+			<p>
+				<a href=" {{ url_for('hobbies', username=current_user.username) }}" class='cancelBtn'>Cancel</a>
 			</p>
 		</div>
 	<div id="form">

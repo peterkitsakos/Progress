@@ -1,0 +1,40 @@
+{% extends "baseNav.html" %}
+
+{% block css %}
+<link rel="stylesheet" href="{{ url_for('static',filename='css/dayView.css') }}">
+{% endblock %}
+
+{% block content %}
+<div id="slider">
+	<div class="dayView">
+		<div class="blankDate">
+			<h1>blank</h1>
+		</div>
+		<div class="blankHobbies" id="left">
+			<a href="#">&lt</a>
+		</div>
+	</div>
+
+	<div class="dayView" id="focusDay">
+		<div id="date">
+			<h1>{{ weekday }}, {{ month }} {{ day.date }}, {{ day.year }}</h1>
+		</div>
+		<div id="hobbyContent">
+			{% for hobby in day.hobbies %}
+				<div class="hobbyWithEllipsis">
+					<p class="leftFill">{{ hobby.name }}</p><a href="{{ url_for('hobbyView', username=current_user.username, hobbyName=hobby.name) }}" class="rightAlign">...</a>
+				</div>
+			{% endfor %}
+		</div>
+	</div>
+
+	<div class="dayView">
+		<div class="blankDate">
+			<h1>blank</h1>
+		</div>
+		<div class="blankHobbies" id="right">
+			<a href="#">&gt</a>
+		</div>
+	</div>
+</div>
+{% endblock %}

@@ -26,20 +26,76 @@
 			{% endfor %}
 			<div id="durFreq">
 				<p>
-					{{ form.frequency }}
-					{{ form.frequency.label }}
+					Frequency (Days per week)
 				</p>
-				{% for error in form.frequency.errors %}
-	           		<span style="color: red; font-family: 'Roboto', sans-serif;">{{ error }}</span>
-	           	{% endfor %}
+
+
+				<!-- Day of Week choice buttons -->
+				<div id="freqChoices">
+					<label class="freqContainer">
+						{{ form.frequencySun(checked=hobby.sunday) }}
+						<span class="checkmark">S</span>
+					</label>
+
+					<label class="freqContainer">
+						{{ form.frequencyMon(checked=hobby.monday) }}
+						<span class="checkmark">M</span>
+					</label>
+
+					<label class="freqContainer">
+						{{ form.frequencyTue(checked=hobby.tuesday) }}
+						<span class="checkmark">T</span>
+					</label>
+
+					<label class="freqContainer">
+						{{ form.frequencyWed(checked=hobby.wednesday) }}
+						<span class="checkmark">W</span>
+					</label>
+
+					<label class="freqContainer">
+						{{ form.frequencyThu(checked=hobby.thursday) }}
+						<span class="checkmark">T</span>
+					</label>
+
+					<label class="freqContainer">
+						{{ form.frequencyFri(checked=hobby.friday) }}
+						<span class="checkmark">F</span>
+					</label>
+
+					<label class="freqContainer">
+						{{ form.frequencySat(checked=hobby.saturday) }}
+						<span class="checkmark">S</span>
+					</label>
+				</div>
+
+				<!-- Duration selection and error handling -->
 				<p>
-					{{ form.duration }}
 					{{ form.duration.label }}
+				</p>
+				<p>
+					{{ form.duration(class_="durationField") }}
 				</p>
 				{% for error in form.duration.errors %}
 	           		<span style="color: red; font-family: 'Roboto', sans-serif;">{{ error }}</span>
 	            {% endfor %}
 			</div>
+
+			<!-- Color Picker -->
+			<div id="colorPicker">
+				<p>
+					Label Color
+				</p>
+
+				{% for x in form.color %}
+					<label class="colorContainer">
+						{{ x }}
+						<span class="radioSelect" id={{ x.data.lower() }}></span>
+					</label>
+				{% endfor %}
+			</div>
+
+
+			<!-- Cluster of notes text box and label -->
 			<div id="notesCluster">
 				<p>
 					{{ form.notes.label }}
@@ -49,6 +105,8 @@
 	           		<span style="color: red; font-family: 'Roboto', sans-serif;">{{ error }}</span>
 	            {% endfor %}
 			</div>
+
+			<!-- Cluster of goals text box and label -->
 			<div id="goalsCluster">
 				<p>
 					{{ form.goals.label }}
@@ -58,11 +116,16 @@
 			{% for error in form.goals.errors %}
 	           		<span style="color: red; font-family: 'Roboto', sans-serif;">{{ error }}</span>
 	        {% endfor %}
+			
 			<div id="submitContainer">
 				<p>
-					{{ form.submit(class="submit") }}
+					{{ form.save(class="submit") }}
+				</p>
+				<p>
+					{{ form.delete(class="submit") }}
 				</p>
 			</div>
+			
 		</form>
 	</div>
 </div>

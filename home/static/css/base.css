@@ -26,14 +26,22 @@ html, body{
 	font-family: 'Roboto', sans-serif;
 }
 
-#nav a.active, #nav a:hover{
+#nav a.active, #nav a:hover, #nav a:focus{
 	box-shadow: inset 4px 0px #FF5A5A;
-	transition: box-shadow 0.2s;
+	transition: box-shadow 0.3s;
 	cursor: pointer;
+}
+
+#nav a:focus{
+	outline: none;
 }
 
 #content{
 	display: flex;
 	flex-direction: column;
 	width: 100%;
+}
+
+button:focus{
+	outline: none;
 }

@@ -1,0 +1,13 @@
+{% extends 'baseNav.html' %}
+
+{% block css %}
+	<link rel="stylesheet" href="{{ url_for('static', filename='css/achievements.css') }}">
+{% endblock %}
+
+{% block content %}
+	<div id="achievementContainer">
+	{% for i in achievementList %}
+		<img src="{{ url_for('static', filename='images/' + i + '.svg')}}">
+	{% endfor %}
+	</div>
+{% endblock %}

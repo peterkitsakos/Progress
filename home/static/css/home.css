@@ -48,7 +48,7 @@
 	margin: 10px 0px 0px 10px;
 }
 
-#calendarControls button{ 
+#calendarControls p{ 
 	padding: 2px;
 	border: none;
 	text-decoration: none;
@@ -59,9 +59,53 @@
 	background-color: #FF5A5A;
 }
 
-#calendarControls button:hover{
+#calendarControls p:hover{
 	background-color: #af3d3d;
 	cursor: pointer;
+}
+
+#monthDropdown, #yearDropdown{
+	margin-top: 30px;
+	max-height: 200px;
+	overflow: scroll;
+	display: none;
+}
+
+#monthDropdown{
+	position: absolute;
+	overflow-x: hidden;
+}
+
+#yearDropdown{
+	margin-left: 95px;
+	position: absolute;
+	overflow-x: hidden;
+}
+
+#monthDropdown:hover, #yearDropdown:hover{
+	display: block;
+}
+
+#monthCtrlButton:hover + #monthDropdown{
+	display: block;
+}
+
+#yearCtrlButton:hover + #yearDropdown{
+	display: block;
+}
+
+.dropdownItem{
+	color: white;
+	display: block;
+	padding: 10px 10px;
+	background-color: #515151;
+
+	font-family: 'Montserrat', sans-serif;
+	text-decoration: none;
+}
+
+.dropdownItem:hover {
+	background-color: #39383B;
 }
 
 /* Calendar Days */
@@ -72,52 +116,61 @@
 	justify-content: flex-start;
 	flex-wrap: wrap;
 
+	height: 100%;
+
 	padding: 0px 0px 0px 10px;
 }
 
-#calendarDays p.pastDay{
+#calendarDays p{
+	user-select: none;
+}
+
+#calendarDays a{
+	text-decoration: none;
+}
+
+#calendarDays .pastDay{
 	background-color: grey;
-
-	display: flex;
-	width: 13.5%;
-	padding-bottom: 6.2%;
-	margin: 10px 10px 0px 0px;
-
-	border: white 1px;
-	border-radius: 2px;
-
 	color: white;
-	font-family: 'Roboto', sans-serif;
-	text-align: center;
 }
 
-#calendarDays p.futureDay{
+#calendarDays .futureDay{
 	background-color: white;
-
-	display: flex;
-	width: 13.5%;
-	padding-bottom: 6.2%;
-	margin: 10px 10px 0px 0px;
-
-	border: white 1px;
-	border-radius: 2px;
-
-	font-family: 'Roboto', sans-serif;
-	text-align: center;
+	color: black;
 }
 
+#calendarDays .notCurrDay{
+	background-color: #b2b2b2;
 
-#calendarDays p:hover{
+	color: grey;
+}
+
+#calendarDays .futureDay:hover, #calendarDays .pastDay:hover{
 	background-color: #515151;
+	color: white;
 	cursor: pointer;
 }
 
+#calendarDays .day{
+	display: flex;
+	flex-direction: column;
+	margin: 10px 10px 0px 0px;
+	padding: 3px;
+	width: 13.4%;
+	flex-grow: 1;
+	overflow: hidden;
+	
+	border-radius: 4px;
+	
+	font-family: 'Roboto', sans-serif;
+}
 
+#calendarDays .listedHobby{
+	padding-left: 2px;}
 
-
-
-
-
+.listedHobby{
+	overflow: hidden;
+}
 
 
 

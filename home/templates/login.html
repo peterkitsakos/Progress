@@ -6,35 +6,47 @@
 {% block content %}
 	<form action="" method="POST">
 		{{ form.hidden_tag() }}
-		<div id='form'>
-			<img src="{{ url_for('static', filename='images/main.svg') }}" width="500px" height="100px">
-			<div id='centeredElements'>
-				<ul id='centeredLeft'>
-					<li><p>{{ form.username.label }}</p></li>
-					<li><p>{{ form.password.label }}</p></li>
-					<li><p>{{ form.remember_me.label }}</p></li>
-				</ul>
-				<ul id='centeredRight'>
-					<li><p>{{ form.username(size=32) }}</p></li>
-					<li><p>{{ form.password(size=32) }}</p></li>
-					<li><p>{{ form.remember_me }}</p></li>
-				</ul>
+		<img src="{{ url_for('static', filename='images/LogoV4White.svg') }}" class='logo'>
+		<div id='centeredElements'>
+			<div id='centeredLeft'>
+				<p>{{ form.username.label }}</p>
+				<p>{{ form.password.label }}</p>
+				<p>{{ form.remember_me.label }}</p>
 			</div>
+			<div id='centeredRight'>
+				<p>{{ form.username(size=32) }}</p>
+				<p>{{ form.password(size=32) }}</p>
+				<p>{{ form.remember_me }}</p>
+			</div>
+		</div>
 
-			<div id='alignCenter'>
-				<p>
-				{{ form.submit(class_='signIn') }}
-				</p>
-				<p>
-					Not a member? <a href="{{ url_for('register') }}">Register Now</a>
-				</p>
-				{% for error in form.username.errors %}
-	       			<span style="color: red; font-family: 'Roboto', sans-serif;">{{ error }}</span>
-	       		{% endfor %}
-	        	{% for error in form.password.errors %}
-	       			<span style="color: red; font-family: 'Roboto', sans-serif;">{{ error }}</span>
-	        	{% endfor %}
-	        </div>
+		<div id='alignCenter'>
+
+			<!-- get and print all errors for invalid login -->
+			{% with messages = get_flashed_messages() %}
+			{% if messages %}
+				<ul class=flashes>
+					{% for message in messages %}
+						<li>{{ message }}</li>
+					{% endfor %}
+				</ul>
+			{% endif %}
+			{% endwith %}
+			
+			<p>
+			{{ form.submit(class_='signIn') }}
+			</p>
+			<p>
+				Not a member? <a href="{{ url_for('register') }}">Register Now</a>
+			</p>
+			
+
+			{% for error in form.username.errors %}
+       			<span style="color: red; font-family: 'Roboto', sans-serif;">{{ error }}</span>
+       		{% endfor %}
+        	{% for error in form.password.errors %}
+       			<span style="color: red; font-family: 'Roboto', sans-serif;">{{ error }}</span>
+        	{% endfor %}
 		</div>
 	</form>
 {% endblock %}

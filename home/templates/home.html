@@ -7,26 +7,61 @@
 {% block content %}
   <div id='hobbyTitle'>
       <p>{{ current_user.username }}</p>
-      <span id="titleControls">
+      <span id='titleControls'>
         <a href="#">Help</a>
         <a href="{{ url_for('logout') }}">Logout</a>
       </span>
   </div>
 
   <div id='calendar'>
+    
     <div id='calendarControls'>
-    	<button class='calCtrlButton'>Month</button>
-    	<button class='calCtrlButton'>Year</button>
+    	<p class='calCtrlButton' id='monthCtrlButton'>Month</p>
+        <div id='monthDropdown'>
+          <a href='#' class='dropdownItem'>January</a>
+          <a href='#' class='dropdownItem'>February</a>
+          <a href='#' class='dropdownItem'>March</a>
+          <a href='#' class='dropdownItem'>April</a>
+          <a href='#' class='dropdownItem'>May</a>
+          <a href='#' class='dropdownItem'>June</a>
+          <a href='#' class='dropdownItem'>July</a>
+          <a href='#' class='dropdownItem'>August</a>
+          <a href='#' class='dropdownItem'>September</a>
+          <a href='#' class='dropdownItem'>October</a>
+          <a href='#' class='dropdownItem'>November</a>
+          <a href='#' class='dropdownItem'>December</a>
+        </div>
+    	<p class='calCtrlButton' id='yearCtrlButton'>Year</p>
+        <div id='yearDropdown'>
+          {% for y in range(20) %}
+            <a href='#' class='dropdownItem'>{{ year - y }}</a>
+          {% endfor %}
+        </div>
     </div>
 
     <div id="calendarDays">
-      {% for day in calendarDays %}
-        {% if day.past %}
-      	<p class='pastDay'>{{ day.date }}</p>
-        {% else %}
-        <p class='futureDay'>{{ day.date }}</p>
-        {% endif %}
-      {% endfor %}
+        {% for day in calendarDays %}
+          {% if not day.curr %}
+            <div class='notCurrDay day'><p>{{ day.date }}</p>
+              {% for h in day.hobbies %}
+                <p class='listedHobby'>{{ h.name }}</p>
+              {% endfor %}
+            </div>
+          {% elif day.past %}
+          	<a href="{{ url_for('dayView', username=current_user.username, dayid=day.id) }}" class='pastDay day'><p>{{ day.date }}</p>
+                {% for h in day.hobbies %}
+                  <p class='listedHobby'>&#183; {{ h.name }}</p>
+                {% endfor %}
+            </a>
+          {% else %}
+            <a href="{{ url_for('dayView', username=current_user.username, dayid=day.id) }}" class='futureDay day'><p>{{ day.date }}</p>
+              {% for h in day.hobbies %}
+                <p class='listedHobby'>&#183; {{ h.name }}</p>
+              {% endfor %}
+            </a>
+          {% endif %}
+        {% endfor %}
     </div>
+
   </div>
 {% endblock %}
