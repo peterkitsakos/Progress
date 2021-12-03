@@ -7,6 +7,6 @@ Peter Kitsakos
 * GitHub: http://www.github.com/peterkitsakos
 ## Purpose
 A Flask-Based web app design to help users schedule and track progress in hobbies, habits, and more.
-## Interface:
+## Interface
 ![Screenshot](./docs/images/InterfaceScreenshot1.png) 
 ![Screenshot](./docs/images/InterfaceScreenshot2.png)
